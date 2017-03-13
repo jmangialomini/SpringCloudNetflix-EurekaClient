@@ -1,15 +1,6 @@
-spring:
-  application:
-    name: SpringCloudNetflix-EurekaClient
-
 server:
-  port: 8762
+  port: 0
 
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 10
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
-  client:
-    registryFetchIntervalSeconds: 5
-    
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
